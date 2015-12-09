@@ -33,13 +33,17 @@ namespace ProjetInfo2a
         {
             Label labelJour = sender as Label;
             int nbJour = int.Parse(labelJour.Content.ToString());
-            MessageBox.Show("vous cherchez à afficher le jour "+ 
-                _mission.getPlanning()[11].getNumero().ToString(), "petit test");
-            /*ClassJour trouveJour =_mission.getPlanning()[nbJour];
+           // MessageBox.Show("vous cherchez à afficher le jour "+ 
+               // _mission.getPlanning()[11].getNumero().ToString(), "petit test");
+            ClassJour trouveJour =_mission.getPlanning()[nbJour];
             Page_Jour jour = new Page_Jour(trouveJour);
             this.NavigationService.Navigate(jour);
-            */
+            
         }
-        
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //
+        }
     }
 }

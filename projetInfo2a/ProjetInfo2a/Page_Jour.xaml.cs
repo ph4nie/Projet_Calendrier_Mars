@@ -33,9 +33,8 @@ namespace ProjetInfo2a
         private void ChargeAffichageJour(object sender, RoutedEventArgs e)
         {
             //affiche son numéro dans le titre
-            Titre_Jour.Text = "Jour n° " + _jour.getNumero();
-            //affiche son dictionaire d'activités dans le datagrid
-            DataGridActivites.ItemsSource = _jour.getActivites();
+            Titre_Jour.Text = "Jour n°" + _jour.getNumero();
+                       
         }
         
         private void Consulter_CR(object sender, RoutedEventArgs e)
@@ -45,14 +44,27 @@ namespace ProjetInfo2a
             this.NavigationService.Navigate(page_cr);
         }
 
-        private void Voir_Activite(double hDeb, double hFin, MouseButtonEventArgs e)
+        private void Voir_Activite(object sender, MouseButtonEventArgs e)
         {
-            double[] creneau = new double[2] { hDeb, hFin };
+            double[] creneau = sender as double[];
             ClassActivite act = _jour.getActivites()[creneau];
             Page_Activite activite = new Page_Activite(act);
             this.NavigationService.Navigate(activite);
         }
 
-        
+        private void DataGridActivites_Loaded(object sender, RoutedEventArgs e)
+        {
+            //affiche son dictionaire d'activités dans le datagrid
+            var grid = sender as DataGrid;
+            grid.ItemsSource = _jour._mission.getActivites(); 
+
+            //List<string> maliste = new List<string>();
+            //maliste.Add("hello");
+            //maliste.Add("pipi");
+            //maliste.Add("cake");
+
+            //grid.ItemsSource = maliste;
+
+        }
     }
 }

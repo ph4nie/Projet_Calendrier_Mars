@@ -72,6 +72,11 @@ namespace ProjetInfo2a
             _activites=newActivites;
         }
 
+        public ClassMission getMission()
+        {
+            return _mission;
+        }
+
         // insere une activité au dico et lui donne pr clef son couple hDebut, hFin
         public void ajouterActivite(ClassActivite act)
         {

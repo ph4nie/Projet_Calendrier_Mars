@@ -20,40 +20,37 @@ namespace ProjetInfo2a
     /// </summary>
     public partial class Page_Accueil : Page
     {
-        ClassMission _mission;
-        
+        public ClassMission _LAmission;
+
         public Page_Accueil()
-        {            
-            InitializeComponent();
-        }
-        
-        
-        public Page_Accueil(ClassMission mission)
         {
-            _mission = mission;
+            _LAmission = new ClassMission();
+            _LAmission.chargerInfo();
+            _LAmission.initialisePlanning();
 
             InitializeComponent();
         }
+    
 
-        private void AfficherPlanning(object sender, RoutedEventArgs e)
-        {
-            Page_Planning planning = new Page_Planning(this._mission);
-            this.NavigationService.Navigate(planning);
-            /*Compte_Rendu cr = new Compte_Rendu();
-            this.NavigationService.Navigate(cr);*/
-
-        }
-        private void AfficherExploration(object sender, RoutedEventArgs e)
-        {
-            Page_Exploration exploration = new Page_Exploration();
-            this.NavigationService.Navigate(exploration);
-        }
-
-        private void AfficherRecherche(object sender, RoutedEventArgs e)
-        {
-            Page_Recherche recherche = new Page_Recherche();
-            this.NavigationService.Navigate(recherche);
-        }
+    private void AfficherPlanning(object sender, RoutedEventArgs e)
+    {
+        Page_Planning planning = new Page_Planning(this._LAmission);
+        this.NavigationService.Navigate(planning);
+        /*Compte_Rendu cr = new Compte_Rendu();
+        this.NavigationService.Navigate(cr);*/
 
     }
+    private void AfficherExploration(object sender, RoutedEventArgs e)
+    {
+        Page_Exploration exploration = new Page_Exploration();
+        this.NavigationService.Navigate(exploration);
+    }
+
+    private void AfficherRecherche(object sender, RoutedEventArgs e)
+    {
+        Page_Recherche recherche = new Page_Recherche();
+        this.NavigationService.Navigate(recherche);
+    }
+
+}
 }
