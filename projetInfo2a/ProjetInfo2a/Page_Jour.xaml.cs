@@ -34,9 +34,9 @@ namespace ProjetInfo2a
         {
             //affiche son numéro dans le titre
             Titre_Jour.Text = "Jour n°" + _jour.getNumero();
-                       
+
         }
-        
+
         private void Consulter_CR(object sender, RoutedEventArgs e)
         {
             ClassCompteRendu cr = _jour.getCR();
@@ -56,8 +56,10 @@ namespace ProjetInfo2a
         {
             //affiche son dictionaire d'activités dans le datagrid
             var grid = sender as DataGrid;
-            grid.ItemsSource = _jour._mission.getActivites(); 
+            grid.ItemsSource = _jour.getActivites();
+            
 
+            
             //List<string> maliste = new List<string>();
             //maliste.Add("hello");
             //maliste.Add("pipi");

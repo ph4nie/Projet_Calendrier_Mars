@@ -20,6 +20,7 @@ namespace ProjetInfo2a
     /// </summary>
     public partial class Page_Planning : Page
     {
+        private int _comptJours = 1; // incrémenté par Next / décrementé par previous (-/+21)
         ClassMission _mission;
 
         public Page_Planning(ClassMission mission)
@@ -27,23 +28,42 @@ namespace ProjetInfo2a
             _mission = mission;
 
             InitializeComponent();
+
         }
 
         private void AfficherJourJ(object sender, MouseButtonEventArgs e)
         {
             Label labelJour = sender as Label;
             int nbJour = int.Parse(labelJour.Content.ToString());
-           // MessageBox.Show("vous cherchez à afficher le jour "+ 
-               // _mission.getPlanning()[11].getNumero().ToString(), "petit test");
-            ClassJour trouveJour =_mission.getPlanning()[nbJour];
+            ClassJour trouveJour = _mission.getPlanning()[nbJour];
             Page_Jour jour = new Page_Jour(trouveJour);
             this.NavigationService.Navigate(jour);
-            
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //
+        }
+        private void Jour_Loaded(object sender, RoutedEventArgs e)
+        {
+            Label label = sender as Label;
+            label.Content = _comptJours++;
+        }
+
+        private void afficheNextPeriode(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("appel de afficheNextPeriode", "test");
+            if (_comptJours < 484)
+                _comptJours += 21;
+            // + besoin de "rafraichir l'affichage des labels"
+            this.InvalidateVisual();
+        }
+
+        private void affichePrevPeriode(object sender, MouseButtonEventArgs e)
+        {
+            if (_comptJours >= 22)
+                _comptJours -= 21;
         }
     }
 }

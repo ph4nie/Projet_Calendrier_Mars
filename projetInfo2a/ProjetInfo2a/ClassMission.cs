@@ -63,7 +63,10 @@ namespace ProjetInfo2a
         {
             return _planning;
         }
-
+        public ClassJour getJourneeDefaut()
+        {
+            return _journeeDefaut;
+        }
         // recupère le numéro du jour Martien courant à partir de la date Terrienne
         public void setJourJ()
         {

@@ -43,7 +43,7 @@
     <activite categorie="Repair" nom="Habitat"/>
     <activite categorie="Repair" nom="Space suit"/>
     <activite categorie="Repair" nom="Vehicle"/>
-    <qctivite categorie="Emergency" nom="Emergency"/>
+    <activite categorie="Emergency" nom="Emergency"/>
   </activites>
   <journeeDefaut>
     <activite hdebut="0" hfin="7" categorie="Living" nom="Sleeping"/>

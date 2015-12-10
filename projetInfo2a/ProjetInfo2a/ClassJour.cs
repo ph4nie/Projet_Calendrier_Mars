@@ -18,6 +18,7 @@ namespace ProjetInfo2a
 
         public ClassJour(ClassMission laMission)
         {
+            _statut = "futur"; 
             _numero = compteurJours;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
             compteurJours++;  // les prochains jours auront le num correspondant à leur ID
             _mission = laMission;

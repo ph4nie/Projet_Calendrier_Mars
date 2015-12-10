@@ -7,7 +7,7 @@
 
     <Grid Background="White" Margin="-390,32,-390,0">
         <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <!--<DataGrid x:Name="DataGridCreneaux" HorizontalAlignment="Left" Margin="86,206,0,0" VerticalAlignment="Top" Width="304"/>-->
+        <DataGrid x:Name="DataGridCreneaux" HorizontalAlignment="Left" Margin="86,206,0,0" VerticalAlignment="Top" Width="304"/>
         <DataGrid x:Name="DataGridActivites" HorizontalAlignment="Left" Margin="390,206,0,0" VerticalAlignment="Top" Width="304" Loaded="DataGridActivites_Loaded" >
             <!--  <DataGrid.Columns>
                 <DataGridTextColumn Header="Key" Binding="{Binding Key}" />

@@ -29,6 +29,7 @@ namespace ProjetInfo2a
             _LAmission.initialisePlanning();
 
             InitializeComponent();
+            MessageBox.Show(_LAmission.getJourneeDefaut().getActivites().Count().ToString(),"activité");
         }
     
 
