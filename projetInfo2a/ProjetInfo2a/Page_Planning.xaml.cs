@@ -53,17 +53,19 @@ namespace ProjetInfo2a
 
         private void afficheNextPeriode(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("appel de afficheNextPeriode", "test");
-            if (_comptJours < 484)
-                _comptJours += 21;
-            // + besoin de "rafraichir l'affichage des labels"
-            this.InvalidateVisual();
+            // "rafraichir l'affichage des labels"
+            MessageBox.Show(_comptJours.ToString(), "Compteur de jours");
+            //GridPlanning.InvalidateVisual();
+            foreach (Label label in Grid.)
         }
 
         private void affichePrevPeriode(object sender, MouseButtonEventArgs e)
         {
-            if (_comptJours >= 22)
-                _comptJours -= 21;
+            if (_comptJours >= 42)
+            {
+                _comptJours -= 42;
+                // "rafraichir l'affichage des labels"
+            }
         }
     }
 }
