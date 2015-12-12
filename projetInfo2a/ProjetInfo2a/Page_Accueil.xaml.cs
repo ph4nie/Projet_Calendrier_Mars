@@ -27,6 +27,7 @@ namespace ProjetInfo2a
             _LAmission = new ClassMission(); //crée la mission + l'initialise
 
             InitializeComponent();
+            
         }
 
 

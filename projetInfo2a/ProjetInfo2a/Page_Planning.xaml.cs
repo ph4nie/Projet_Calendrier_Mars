@@ -31,6 +31,12 @@ namespace ProjetInfo2a
 
             InitializeComponent();
 
+            MessageBox.Show(_mission.getJourJ().ToString());
+
+            for (int i = 1; i <= _mission.getDuree(); i++)
+            {
+                _mission.getPlanning()[i].autoSetStatut();
+            }
         }
 
         private void AfficherJourJ(object sender, MouseButtonEventArgs e)
@@ -38,49 +44,53 @@ namespace ProjetInfo2a
             Label label = sender as Label;
             int nbJour = int.Parse(label.Content.ToString());
             ClassJour trouveJour = _mission.getPlanning()[nbJour];
-
-            //ClassJour trouveJour = _JoursAffiches[nbJour];
-
             Page_Jour jour = new Page_Jour(trouveJour);
             this.NavigationService.Navigate(jour);
 
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //
-        }
         private void Jour_Loaded(object sender, RoutedEventArgs e)
         {
             Label label = sender as Label;
 
             //affiche le numéro du jour dans le Label
             label.Content = _comptJours;
-            // récupere l'instance de ClassJour correspondante dans le planning de la mission
-            ClassJour dataJour = _mission.getPlanning()[_comptJours];
-
-            string statut = dataJour.getStatut();
-            string couleur;
-
-            switch (statut)
-            {
-                case "passé":
-                    couleur = "#FF6C7A89";
-                    break;
-                case "présent":
-                    couleur = "#FF2ECC71";
-                    break;
-                case "futur":
-                    couleur = "#FF19B5FE";
-                    break;
-                default:
-                    couleur = "#ff0000";
-                    break;
-            }
-
-            label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString(couleur);
+            //affiche la couleur du label correspondant au statut du jour
+            autoSetCouleur(label);
 
             _comptJours++;
+        }
+
+        // determine la couleur d'affichage d'un label de jour en fonction du statut
+        private void autoSetCouleur(Label label)
+        {
+            int i = (int)label.Content;
+            if (i <= 500)
+            {
+                // récupere l'instance de ClassJour correspondante dans le planning de la mission
+                ClassJour dataJour = _mission.getPlanning()[i];
+
+                string statut = dataJour.getStatut();
+                string couleur;
+
+                switch (statut)
+                {
+                    case "passé":
+                        couleur = "#FF6C7A89"; //gris
+                        break;
+                    case "présent":
+                        couleur = "#FF2ECC71"; //vert
+                        break;
+                    case "futur":
+                        couleur = "#FF19B5FE"; //bleu
+                        break;
+                    default:
+                        couleur = "#FF0000"; //rouge
+                        break;
+                }
+                //attribue la couleur au fond
+                label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString(couleur);
+            }
         }
 
         //affiche les 21 prochains jours = rafraichir l'affichage des labels
@@ -113,11 +123,12 @@ namespace ProjetInfo2a
 
                 // MàJ affichage Label
                 label.Content = _comptJours++;
+                autoSetCouleur(label);
 
                 if (_comptJours > 501)
-                {
                     label.Visibility = Visibility.Hidden;
-                }
+                else
+                    label.Visibility = Visibility.Visible;
             }
         }
     }

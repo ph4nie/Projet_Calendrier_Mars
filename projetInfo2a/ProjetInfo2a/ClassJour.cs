@@ -18,9 +18,8 @@ namespace ProjetInfo2a
 
         public ClassJour(ClassMission laMission)
         {
-            _statut = "futur"; 
-            _numero = compteurJours;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
-            compteurJours++;  // les prochains jours auront le num correspondant à leur ID
+            _numero = compteurJours++;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
+            //compteurJours++;  // les prochains jours auront le num correspondant à leur ID
             _mission = laMission;
             _activites = new Dictionary<double[], ClassActivite>();
         }
@@ -109,9 +108,12 @@ namespace ProjetInfo2a
             }
         }
 
-        public void defineStatut()
+        public void autoSetStatut()
         {
             int diff = _numero - _mission.getJourJ();
+            Console.WriteLine("jour J : " + _mission.getJourJ()
+                + "\nnumero : " + _numero
+                + "\ndifférence = " + diff);
 
             switch (Math.Sign(diff))
             {
@@ -119,7 +121,7 @@ namespace ProjetInfo2a
                     setStatut("passé");
                     break;
                 case 0:
-                    setStatut("present");
+                    setStatut("présent");
                     break;
                 case 1:
                     setStatut("futur");
