@@ -24,34 +24,31 @@ namespace ProjetInfo2a
 
         public Page_Accueil()
         {
-            _LAmission = new ClassMission();
-            _LAmission.chargerInfo();
-            _LAmission.initialisePlanning();
+            _LAmission = new ClassMission(); //crée la mission + l'initialise
 
             InitializeComponent();
-            MessageBox.Show(_LAmission.getJourneeDefaut().getActivites().Count().ToString(),"activité");
         }
-    
 
-    private void AfficherPlanning(object sender, RoutedEventArgs e)
-    {
-        Page_Planning planning = new Page_Planning(this._LAmission);
-        this.NavigationService.Navigate(planning);
-        /*Compte_Rendu cr = new Compte_Rendu();
-        this.NavigationService.Navigate(cr);*/
+
+        private void AfficherPlanning(object sender, RoutedEventArgs e)
+        {
+            Page_Planning planning = new Page_Planning(this._LAmission);
+            this.NavigationService.Navigate(planning);
+            /*Compte_Rendu cr = new Compte_Rendu();
+            this.NavigationService.Navigate(cr);*/
+
+        }
+        private void AfficherExploration(object sender, RoutedEventArgs e)
+        {
+            Page_Exploration exploration = new Page_Exploration();
+            this.NavigationService.Navigate(exploration);
+        }
+
+        private void AfficherRecherche(object sender, RoutedEventArgs e)
+        {
+            Page_Recherche recherche = new Page_Recherche();
+            this.NavigationService.Navigate(recherche);
+        }
 
     }
-    private void AfficherExploration(object sender, RoutedEventArgs e)
-    {
-        Page_Exploration exploration = new Page_Exploration();
-        this.NavigationService.Navigate(exploration);
-    }
-
-    private void AfficherRecherche(object sender, RoutedEventArgs e)
-    {
-        Page_Recherche recherche = new Page_Recherche();
-        this.NavigationService.Navigate(recherche);
-    }
-
-}
 }

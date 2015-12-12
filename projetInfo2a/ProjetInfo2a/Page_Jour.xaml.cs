@@ -59,14 +59,6 @@ namespace ProjetInfo2a
             grid.ItemsSource = _jour.getActivites();
             
 
-            
-            //List<string> maliste = new List<string>();
-            //maliste.Add("hello");
-            //maliste.Add("pipi");
-            //maliste.Add("cake");
-
-            //grid.ItemsSource = maliste;
-
         }
     }
 }
