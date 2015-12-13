@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <informations>
-  <mission t0="12/01/2015" duree="500"/>
+  <mission t0="10/10/2015" duree="500"/>
   <lieu nom="Iron Valley">
     <carte image="carte.png" echelle="30"/>
     <position latitude="136" longitude="42"/>
@@ -43,7 +43,7 @@
     <activite categorie="Repair" nom="Habitat"/>
     <activite categorie="Repair" nom="Space suit"/>
     <activite categorie="Repair" nom="Vehicle"/>
-    <qctivite categorie="Emergency" nom="Emergency"/>
+    <activite categorie="Emergency" nom="Emergency"/>
   </activites>
   <journeeDefaut>
     <activite hdebut="0" hfin="7" categorie="Living" nom="Sleeping"/>

@@ -14,7 +14,7 @@ namespace ProjetInfo2a
         private int _nbAstraunautes;
         private List<String> _astronautes;
         private ClassLieu _lieu;
-        private int _jourJ;
+        private int _jourJ = -1;
         private DateTime _t0;
         private int _duree; //en nb de jours
         private ClassJour _journeeDefaut;
@@ -25,12 +25,12 @@ namespace ProjetInfo2a
         {
             _activites = new List<string>();
             _astronautes = new List<string>();
-            _lieu = new ClassLieu();
-            _journeeDefaut = new ClassJour(this);
+            _lieu = new ClassLieu();            
             _planning = new Dictionary<int, ClassJour>();
-
-            chargerInfo();
-            initialisePlanning();
+            
+            chargerInfo(); //désérialise infosGenerales.xml
+            initialisePlanning(); //crée 500 journées par défaut
+            autoSetJourJ(); //actualise le jour courant
         }
 
         // accesseurs
@@ -62,9 +62,13 @@ namespace ProjetInfo2a
         {
             return _planning;
         }
+        public ClassJour getJourneeDefaut()
+        {
+            return _journeeDefaut;
+        }
 
         // recupère le numéro du jour Martien courant à partir de la date Terrienne
-        public void setJourJ()
+        public void autoSetJourJ()
         {
             TimeSpan tpsEcoule = DateTime.Today - _t0;
             double tpsEcouleHeures = tpsEcoule.TotalHours;
@@ -93,7 +97,7 @@ namespace ProjetInfo2a
             load_lieu(xmlDoc);
             load_astronautes(xmlDoc);
             load_journeeDefaut(xmlDoc);
-
+            
         }
 
         // désérialisation de <mission>
@@ -209,12 +213,14 @@ namespace ProjetInfo2a
             }
         }
 
-        // remplissage du planning par défaut
+        // remplissage du planning par défaut : 500 journées initialisées par défaut
         public void initialisePlanning()
         {
             for (int i = 1; i <= _duree; i++)
             {
-                _planning.Add(i, _journeeDefaut);
+                ClassJour newJourDefaut = new ClassJour(this);
+                newJourDefaut.setActivites(_journeeDefaut.getActivites());
+                _planning.Add(i, newJourDefaut);
             }
         }
     }
