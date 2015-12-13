@@ -79,7 +79,7 @@ namespace ProjetInfo2a
             return _mission;
         }
 
-        // insere une activité au dico et lui donne pr clef son couple hDebut, hFin
+        // insere une activité a la liste d'act du jour
         public void ajouterActivite(ClassActivite act)
         {
             if (this.getStatut() == "futur")
@@ -92,7 +92,6 @@ namespace ProjetInfo2a
         {
             if (this.getStatut() == "futur")
             {
-                //remove <key,value> where key==creneau
                 _activites.Remove(act);
             }
         }
