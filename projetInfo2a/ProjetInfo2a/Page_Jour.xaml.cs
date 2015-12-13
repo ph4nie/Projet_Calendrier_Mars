@@ -46,8 +46,9 @@ namespace ProjetInfo2a
 
         private void Voir_Activite(object sender, MouseButtonEventArgs e)
         {
-            double[] creneau = sender as double[];
-            ClassActivite act = _jour.getActivites()[creneau];
+            DataGridCell cell = sender as DataGridCell;
+            int ID = (int)cell.Content;
+            ClassActivite act = _jour.getActivites()[ID];
             Page_Activite activite = new Page_Activite(act);
             this.NavigationService.Navigate(activite);
         }

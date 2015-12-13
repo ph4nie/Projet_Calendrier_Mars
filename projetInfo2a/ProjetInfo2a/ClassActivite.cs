@@ -21,15 +21,8 @@ namespace ProjetInfo2a
         {
             _astronautes = new List<string>();
         }
-        /*
-        public ClassActivite(string participant)
-        {
-            _astronautes = new List<string>();
-            _astronautes.Add(participant);
-        }
-        */
-
-       public void setDescriptif(string newDescriptif)
+        
+        public void setDescriptif(string newDescriptif)
         {
             _descriptif = newDescriptif;
         }

@@ -8,10 +8,10 @@ namespace ProjetInfo2a
 {
     public class ClassJour
     {
-        private static int compteurJours=0;
+        private static int compteurJours = 0;
         private int _numero;
         private string _statut; // passé/prst/futur
-        public Dictionary<double[], ClassActivite> _activites;
+        public List<ClassActivite> _activites;
         public ClassCompteRendu _compteRendu;
         public ClassMission _mission;
 
@@ -19,15 +19,17 @@ namespace ProjetInfo2a
         public ClassJour(ClassMission laMission)
         {
             _numero = compteurJours++;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
-            //compteurJours++;  // les prochains jours auront le num correspondant à leur ID
+                                        // les prochains jours auront le num correspondant à leur ID
+
+            _statut = "futur"; // obligatoire pour remplissage journée défaut
             _mission = laMission;
-            _activites = new Dictionary<double[], ClassActivite>();
+            _activites = new List<ClassActivite>();
         }
 
         public bool getSortieExte()
         {
             // return true ssi une des activités de _activites return true aussi
-            foreach (ClassActivite act in _activites.Values)
+            foreach (ClassActivite act in _activites)
             {
                 if (act.getSortieExt())
                     return true;
@@ -63,13 +65,13 @@ namespace ProjetInfo2a
         {
             return _compteRendu;
         }
-        public Dictionary<double[], ClassActivite> getActivites()
+        public List<ClassActivite> getActivites()
         {
             return _activites;
         }
-        public void setActivites(Dictionary<double[], ClassActivite> newActivites)
+        public void setActivites(List<ClassActivite> newActivites)
         {
-            _activites=newActivites;
+            _activites = newActivites;
         }
 
         public ClassMission getMission()
@@ -82,23 +84,20 @@ namespace ProjetInfo2a
         {
             if (this.getStatut() == "futur")
             {
-                double hDeb = act.getHeureDeb();
-                double hFin = act.getHeureFin();
-                double[] creneau = new double[] { hDeb, hFin };
-                _activites.Add(creneau, act);
+                _activites.Add(act);
             }
         }
 
-        public void supprActivite(double[] crenau)
+        public void supprActivite(ClassActivite act)
         {
             if (this.getStatut() == "futur")
             {
                 //remove <key,value> where key==creneau
-                _activites.Remove(crenau);
+                _activites.Remove(act);
             }
         }
-
-        public void modifAcitivite(double[] crenau, ClassActivite newAct)
+        /*
+        public void modifAcitivite(ClassActivite newAct)
         {
             if (this.getStatut() == "futur" && newAct.getHeureDeb() == crenau[0]
                 && newAct.getHeureFin() == crenau[1])
@@ -107,6 +106,7 @@ namespace ProjetInfo2a
                 ajouterActivite(newAct);
             }
         }
+        */
 
         public void autoSetStatut()
         {

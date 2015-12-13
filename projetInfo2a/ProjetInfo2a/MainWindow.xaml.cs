@@ -28,9 +28,9 @@ namespace ProjetInfo2a
         public MainWindow()
         {
             InitializeComponent();
+
             // crée la mission et l'initialise depuis XML
             _LAmission = new ClassMission();
-
         }
 
         public ClassMission getMission()

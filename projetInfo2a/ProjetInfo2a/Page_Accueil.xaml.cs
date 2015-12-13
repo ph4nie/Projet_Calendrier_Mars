@@ -29,13 +29,6 @@ namespace ProjetInfo2a
             _mission = ((MainWindow)System.Windows.Application.Current.MainWindow).getMission();
         }
 
-        public Page_Accueil(ClassMission mission)
-        {
-            InitializeComponent();
-            _mission = mission;
-        }
-
-
         private void AfficherPlanning(object sender, RoutedEventArgs e)
         {
             Page_Planning planning = new Page_Planning();

@@ -25,9 +25,9 @@ namespace ProjetInfo2a
         {
             _activites = new List<string>();
             _astronautes = new List<string>();
-            _lieu = new ClassLieu();            
+            _lieu = new ClassLieu();
             _planning = new Dictionary<int, ClassJour>();
-            
+
             chargerInfo(); //désérialise infosGenerales.xml
             initialisePlanning(); //crée 500 journées par défaut
             ///////////////charger le 2eme XML(issu de sérialisation) contenant planning modifié/modifiable
@@ -40,7 +40,7 @@ namespace ProjetInfo2a
         {
             return _activites;
         }
-       
+
         public int getJourJ()
         {
             return _jourJ;
@@ -60,7 +60,7 @@ namespace ProjetInfo2a
         {
             _duree = nbJours;
         }
-        public Dictionary<int,ClassJour> getPlanning()
+        public Dictionary<int, ClassJour> getPlanning()
         {
             return _planning;
         }
@@ -92,7 +92,7 @@ namespace ProjetInfo2a
 
             try
             {
-                xmlDoc.Load("../../Data/infosGenerales.xml"); 
+                xmlDoc.Load("../../Data/infosGenerales.xml");
             }
             catch
             {
@@ -107,7 +107,7 @@ namespace ProjetInfo2a
             load_lieu(xmlDoc);
             load_astronautes(xmlDoc);
             load_journeeDefaut(xmlDoc);
-            
+
         }
 
         // désérialisation de <mission>
@@ -169,8 +169,8 @@ namespace ProjetInfo2a
                 String activite = xml_attr.Value;
 
                 xml_attr = node.Attributes["sous-categorie"];
-                if (xml_attr!=null)
-                activite += " / " + xml_attr.Value;
+                if (xml_attr != null)
+                    activite += " / " + xml_attr.Value;
 
                 //idem pour l'attribut nom 
                 xml_attr = node.Attributes["nom"];
@@ -212,7 +212,7 @@ namespace ProjetInfo2a
                 XmlAttribute xml_attr = node.Attributes["categorie"];
                 activite.setCategorie(xml_attr.Value);
                 xml_attr = node.Attributes["nom"];
-                activite.setCategorie(activite.getCategorie() + " / " + xml_attr);
+                activite.setCategorie(activite.getCategorie() + " / " + xml_attr.Value);
 
                 xml_attr = node.Attributes["hdebut"];
                 activite.setHeureDeb(double.Parse(xml_attr.Value));
@@ -226,11 +226,44 @@ namespace ProjetInfo2a
         // remplissage du planning par défaut : 500 journées initialisées par défaut
         public void initialisePlanning()
         {
+            XmlDocument xmlDocOut = new XmlDocument();
+            string path = "../../Data/planning.xml";
+            try
+            {
+                xmlDocOut.Load(path);
+            }
+            catch
+            {
+                string message = "Le fichier XML de sauvegarde n'a pas été trouvé dans le répertoire.";
+                MessageBox.Show(message);
+                return;
+            }
+
+            XmlElement root = xmlDocOut.DocumentElement;
+
             for (int i = 1; i <= _duree; i++)
             {
                 ClassJour newJourDefaut = new ClassJour(this);
                 newJourDefaut.setActivites(_journeeDefaut.getActivites());
                 _planning.Add(i, newJourDefaut);
+
+                XmlElement jour = xmlDocOut.CreateElement("Jour");
+                jour.SetAttribute("numero", i.ToString());
+
+                foreach (ClassActivite act in _journeeDefaut.getActivites())
+                {
+                    XmlElement activite = xmlDocOut.CreateElement("Activite");
+                    activite.SetAttribute("hDebut", act.getHeureDeb().ToString());
+                    activite.SetAttribute("hFin", act.getHeureFin().ToString());
+                    activite.SetAttribute("categorie", act.getCategorie());
+
+                    jour.AppendChild(activite);
+                }
+
+                root.AppendChild(jour);
+
+                xmlDocOut.Save(path);
+
             }
         }
     }
