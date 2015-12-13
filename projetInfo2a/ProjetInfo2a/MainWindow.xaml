@@ -49,7 +49,7 @@
         <Frame x:Name="_mainFrame" 
                Source="Page_Accueil.xaml"
          NavigationUIVisibility="Hidden"/>
-    </DockPanel>
+        </DockPanel>
     </Grid>
     
 </Controls:MetroWindow>
