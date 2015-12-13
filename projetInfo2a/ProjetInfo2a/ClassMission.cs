@@ -30,7 +30,9 @@ namespace ProjetInfo2a
             
             chargerInfo(); //désérialise infosGenerales.xml
             initialisePlanning(); //crée 500 journées par défaut
+            ///////////////charger le 2eme XML(issu de sérialisation) contenant planning modifié/modifiable
             autoSetJourJ(); //actualise le jour courant
+            autoSetStatuts(); //actualise le statut de chaq jour en fonction du jour courant
         }
 
         // accesseurs
@@ -73,6 +75,14 @@ namespace ProjetInfo2a
             TimeSpan tpsEcoule = DateTime.Today - _t0;
             double tpsEcouleHeures = tpsEcoule.TotalHours;
             _jourJ = (int)(1 + tpsEcouleHeures / 24.4);
+        }
+        //actualise le statut de chaq jour en fonction de la date courante
+        public void autoSetStatuts()
+        {
+            for (int i = 1; i <= _duree; i++)
+            {
+                _planning[i].autoSetStatut();
+            }
         }
 
         // désérialisation globale qui appelle les methodes de chaque champ de Mission

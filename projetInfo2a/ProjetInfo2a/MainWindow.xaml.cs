@@ -18,22 +18,24 @@ using System.Xml.Linq;
 
 namespace ProjetInfo2a
 {
-        /// <summary>
+    /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-                      
+        ClassMission _LAmission;
+
         public MainWindow()
         {
             InitializeComponent();
+            // crée la mission et l'initialise depuis XML
+            _LAmission = new ClassMission();
 
-            /*
-            Page_Accueil accueil = new Page_Accueil();
-            Page_Planning planning = new Page_Planning(accueil._mission);
-            Page_Recherche recherche = new Page_Recherche();
-            Page_Exploration exploration = new Page_Exploration();
-            */
+        }
+
+        public ClassMission getMission()
+        {
+            return _LAmission;
         }
 
         private void Accueil_Click(object sender, RoutedEventArgs e)

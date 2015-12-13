@@ -23,20 +23,19 @@ namespace ProjetInfo2a
     {
         private int _comptJours = 1;
         ClassMission _mission;
-        //private Dictionary<int, ClassJour> _JoursAffiches = new Dictionary<int, ClassJour>();
 
-        public Page_Planning(ClassMission mission)
+        public Page_Planning()
         {
-            _mission = mission;
-
             InitializeComponent();
 
-            MessageBox.Show(_mission.getJourJ().ToString());
-
+            // récupère LAmission
+            _mission = ((MainWindow)System.Windows.Application.Current.MainWindow).getMission();
+            /*
             for (int i = 1; i <= _mission.getDuree(); i++)
             {
-                _mission.getPlanning()[i].autoSetStatut();
+                 _mission.getPlanning()[i].autoSetStatut();
             }
+            */
         }
 
         private void AfficherJourJ(object sender, MouseButtonEventArgs e)
