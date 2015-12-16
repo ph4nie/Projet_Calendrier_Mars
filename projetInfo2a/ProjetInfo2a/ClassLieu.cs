@@ -58,5 +58,10 @@ namespace ProjetInfo2a
         {
             _echelleMpx = newEchelle;
         }
+
+        public override string ToString()
+        {
+            return _nom;
+        }
     }
 }

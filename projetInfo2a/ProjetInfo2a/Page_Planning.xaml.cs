@@ -30,12 +30,7 @@ namespace ProjetInfo2a
 
             // récupère LAmission
             _mission = ((MainWindow)System.Windows.Application.Current.MainWindow).getMission();
-            /*
-            for (int i = 1; i <= _mission.getDuree(); i++)
-            {
-                 _mission.getPlanning()[i].autoSetStatut();
-            }
-            */
+
         }
 
         private void AfficherJourJ(object sender, MouseButtonEventArgs e)
@@ -54,10 +49,34 @@ namespace ProjetInfo2a
 
             //affiche le numéro du jour dans le Label
             label.Content = _comptJours;
+
             //affiche la couleur du label correspondant au statut du jour
             autoSetCouleur(label);
 
+            //affiche l'image d'astronaute si sortie exté
+            if (_mission.getPlanning()[_comptJours].getSortieExte())
+                showAstroImg(label);
+
             _comptJours++;
+        }
+
+        public void showAstroImg(Label label)
+        {
+            Image img = new Image();
+
+            BitmapImage imgSrc = new BitmapImage();
+            imgSrc.BeginInit();
+            imgSrc.UriSource = new Uri("images/astronaut.png", UriKind.RelativeOrAbsolute);
+            imgSrc.EndInit();
+
+
+            Thickness margin = img.Margin;
+            margin.Left = label.Margin.Left + 75;
+            margin.Top = label.Margin.Top + 75;
+            img.Margin = margin;
+
+            GridPlanning.Children.Add(img);
+
         }
 
         // determine la couleur d'affichage d'un label de jour en fonction du statut

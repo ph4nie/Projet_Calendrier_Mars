@@ -11,11 +11,16 @@ namespace ProjetInfo2a
         private static int compteurJours = 0;
         private int _numero;
         private string _statut; // passé/prst/futur
-        public List<ClassActivite> _activites;
-        public ClassCompteRendu _compteRendu;
+        public List<ClassActivite> Activites
+        {
+            get; set;            //propriété public pour etre accessible à l'affichage avec le Binding
+        }  
+        public ClassCompteRendu CompteRendu
+        {
+            get; set;            
+        }
         public ClassMission _mission;
-
-
+ 
         public ClassJour(ClassMission laMission)
         {
             _numero = compteurJours++;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
@@ -23,15 +28,16 @@ namespace ProjetInfo2a
 
             _statut = "futur"; // obligatoire pour remplissage journée défaut
             _mission = laMission;
-            _activites = new List<ClassActivite>();
+            Activites = new List<ClassActivite>();
+            CompteRendu = new ClassCompteRendu();
         }
 
         public bool getSortieExte()
         {
-            // return true ssi une des activités de _activites return true aussi
-            foreach (ClassActivite act in _activites)
+            // return true ssi une des activités de Activites return true aussi
+            foreach (ClassActivite act in Activites)
             {
-                if (act.getSortieExt())
+                if (act.SortieExt)
                     return true;
             }
             return false;
@@ -56,24 +62,6 @@ namespace ProjetInfo2a
             return _statut;
         }
 
-        public void setCR(ClassCompteRendu CR)
-        {
-            _compteRendu = CR;
-        }
-
-        public ClassCompteRendu getCR()
-        {
-            return _compteRendu;
-        }
-        public List<ClassActivite> getActivites()
-        {
-            return _activites;
-        }
-        public void setActivites(List<ClassActivite> newActivites)
-        {
-            _activites = newActivites;
-        }
-
         public ClassMission getMission()
         {
             return _mission;
@@ -84,7 +72,7 @@ namespace ProjetInfo2a
         {
             if (this.getStatut() == "futur")
             {
-                _activites.Add(act);
+                Activites.Add(act);
             }
         }
 
@@ -92,20 +80,9 @@ namespace ProjetInfo2a
         {
             if (this.getStatut() == "futur")
             {
-                _activites.Remove(act);
+                Activites.Remove(act);
             }
         }
-        /*
-        public void modifAcitivite(ClassActivite newAct)
-        {
-            if (this.getStatut() == "futur" && newAct.getHeureDeb() == crenau[0]
-                && newAct.getHeureFin() == crenau[1])
-            {
-                _activites.Remove(crenau);
-                ajouterActivite(newAct);
-            }
-        }
-        */
 
         public void autoSetStatut()
         {
@@ -128,5 +105,11 @@ namespace ProjetInfo2a
             }
 
         }
+        
+        public override string ToString()
+        {
+            return _numero.ToString();
+        }
+        
     }
 }

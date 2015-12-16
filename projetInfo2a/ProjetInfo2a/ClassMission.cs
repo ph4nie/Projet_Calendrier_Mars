@@ -29,7 +29,8 @@ namespace ProjetInfo2a
             _planning = new Dictionary<int, ClassJour>();
 
             chargerInfo(); //désérialise infosGenerales.xml
-            LoadPlanning(); //désérialise planning.xml
+            LoadPlanning(); //désérialise planning.xml 
+         // initialisePlanning();  //sérialise un planning par défaut dans planning.xml
             autoSetJourJ(); //actualise le jour courant
             autoSetStatuts(); //actualise le statut de chaq jour en fonction du jour courant
         }
@@ -209,14 +210,14 @@ namespace ProjetInfo2a
             {
                 ClassActivite activite = new ClassActivite();
                 XmlAttribute xml_attr = node.Attributes["categorie"];
-                activite.setCategorie(xml_attr.Value);
+                activite.Categorie = xml_attr.Value;
                 xml_attr = node.Attributes["nom"];
-                activite.setCategorie(activite.getCategorie() + " / " + xml_attr.Value);
+                activite.Categorie = activite.Categorie + " / " + xml_attr.Value;
 
                 xml_attr = node.Attributes["hdebut"];
-                activite.setHeureDeb(double.Parse(xml_attr.Value));
+                activite.HeureDebut = double.Parse(xml_attr.Value);
                 xml_attr = node.Attributes["hfin"];
-                activite.setHeureFin(double.Parse(xml_attr.Value));
+                activite.HeureFin = double.Parse(xml_attr.Value);
 
                 _journeeDefaut.ajouterActivite(activite);
             }
@@ -240,37 +241,54 @@ namespace ProjetInfo2a
             //récup tous les jours du planning
             XmlNodeList listJours = xmlDoc.SelectNodes("/Planning/Jour");
 
-            for (int i = 1; i <= _duree; i++)
+
+            //désérialise les 500 jours depuis planning.xml
+            foreach (XmlNode nodeJour in listJours)
             {
                 ClassJour jour = new ClassJour(this);
 
-                //désérialise le jour correspondant à l'index i depuis planning.xml
-                foreach (XmlNode nodeJour in listJours)
+                XmlAttribute numJour = nodeJour.Attributes["numero"];
+                int index = int.Parse(numJour.Value);
+
+                //récup toutes les activites du jour correspondant à l'index courant
+                XmlNodeList listActs = xmlDoc.SelectNodes("/Planning/Jour[@numero='" + index + "']/Activite");
+
+                foreach (XmlNode nodeAct in listActs)
                 {
-                    XmlAttribute numJour = nodeJour.Attributes["numero"];
-                    if (numJour.Value == i.ToString())
-                    {
-                        //récup toutes les activites du jour
-                        XmlNodeList listActs = xmlDoc.SelectNodes("/Planning/Jour/Activite");
+                    ClassActivite activite = new ClassActivite();
 
-                        foreach (XmlNode nodeAct in listActs)
-                        {
-                            ClassActivite activite = new ClassActivite();
-                            XmlAttribute xml_attr = nodeAct.Attributes["categorie"];
-                            activite.setCategorie(xml_attr.Value);
+                    //récupère l'attribut categorie
+                    XmlAttribute xml_attr = nodeAct.Attributes["categorie"];
+                    //stocke sa valeur dans la propriété Categorie de l'objet
+                    activite.Categorie = xml_attr.Value;
 
-                            xml_attr = nodeAct.Attributes["hDebut"];
-                            activite.setHeureDeb(double.Parse(xml_attr.Value));
-                            xml_attr = nodeAct.Attributes["hFin"];
-                            activite.setHeureFin(double.Parse(xml_attr.Value));
+                    //idem pour le reste des attributs/propriétés
+                    xml_attr = nodeAct.Attributes["hDebut"];
+                    activite.HeureDebut = double.Parse(xml_attr.Value);
+                    xml_attr = nodeAct.Attributes["hFin"];
+                    activite.HeureFin = double.Parse(xml_attr.Value);
+                    xml_attr = nodeAct.Attributes["astronautes"];
+                    activite.Astronautes.Add(xml_attr.Value);    //decouper la chaine en substring si plusieurs astro
+                    xml_attr = nodeAct.Attributes["lieu"];
+                    activite.Lieu.setNom(xml_attr.Value);
+                    xml_attr = nodeAct.Attributes["descriptif"];
+                    activite.Descriptif = xml_attr.Value;
+                    xml_attr = nodeAct.Attributes["sortieExt"];
+                    if (xml_attr.Value == "true")
+                        activite.SortieExt = true;
+                    else
+                        activite.SortieExt = false;
 
-                            jour.ajouterActivite(activite);
-                        }
-                    }
+                    activite.Date = jour; //le jour qu'on est en train de créer
+
+
+                    jour.ajouterActivite(activite);
                 }
-                _planning.Add(i, jour);
+
+                _planning.Add(index, jour);
             }
         }
+
 
         // remplissage du planning par défaut : 500 journées initialisées par défaut
         // appelé une fois, pour sérialisation de planning.xml , puis inutilisé
@@ -293,19 +311,24 @@ namespace ProjetInfo2a
 
             for (int i = 1; i <= _duree; i++)
             {
-                //ClassJour newJourDefaut = new ClassJour(this);
-                //newJourDefaut.setActivites(_journeeDefaut.getActivites());
-                //_planning.Add(i, newJourDefaut);
-
+                //crée un jour
                 XmlElement jour = xmlDocOut.CreateElement("Jour");
                 jour.SetAttribute("numero", i.ToString());
 
-                foreach (ClassActivite act in _journeeDefaut.getActivites())
+                //rempli sa liste Activites avec celles par défaut
+                foreach (ClassActivite act in _journeeDefaut.Activites)
                 {
+                    //rempli les attributs connus
                     XmlElement activite = xmlDocOut.CreateElement("Activite");
-                    activite.SetAttribute("hDebut", act.getHeureDeb().ToString());
-                    activite.SetAttribute("hFin", act.getHeureFin().ToString());
-                    activite.SetAttribute("categorie", act.getCategorie());
+                    activite.SetAttribute("hDebut", act.HeureDebut.ToString());
+                    activite.SetAttribute("hFin", act.HeureFin.ToString());
+                    activite.SetAttribute("categorie", act.Categorie);
+                    
+                    //crée des attribus vides pour les champs non définis par défaut
+                    activite.SetAttribute("astronautes", "");
+                    activite.SetAttribute("lieu", "");
+                    activite.SetAttribute("descriptif", "");
+                    activite.SetAttribute("sortieExt", "");
 
                     jour.AppendChild(activite);
                 }
