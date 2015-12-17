@@ -30,6 +30,7 @@ namespace ProjetInfo2a
             _mission = laMission;
             Activites = new List<ClassActivite>();
             CompteRendu = new ClassCompteRendu();
+            CompteRendu.setDate(this);
         }
 
         public bool getSortieExte()

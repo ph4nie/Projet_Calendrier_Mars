@@ -63,12 +63,13 @@ namespace ProjetInfo2a
         public void showAstroImg(Label label)
         {
             Image img = new Image();
-
+            /*
             BitmapImage imgSrc = new BitmapImage();
             imgSrc.BeginInit();
             imgSrc.UriSource = new Uri("images/astronaut.png", UriKind.RelativeOrAbsolute);
             imgSrc.EndInit();
-
+            */
+            
 
             Thickness margin = img.Margin;
             margin.Left = label.Margin.Left + 75;
@@ -97,10 +98,10 @@ namespace ProjetInfo2a
                         couleur = "#FF6C7A89"; //gris
                         break;
                     case "présent":
-                        couleur = "#FF2ECC71"; //vert
+                        couleur = "#FF19B5FE"; //bleu
                         break;
                     case "futur":
-                        couleur = "#FF19B5FE"; //bleu
+                        couleur = "#FF2ECC71"; //vert
                         break;
                     default:
                         couleur = "#FF0000"; //rouge

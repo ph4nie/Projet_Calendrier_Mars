@@ -54,6 +54,7 @@ namespace ProjetInfo2a
             this.NavigationService.Navigate(activite);
         }
 
+        
         private void DataGridActivites_Loaded(object sender, RoutedEventArgs e)
         {
             //affiche son dictionaire d'activités dans le datagrid

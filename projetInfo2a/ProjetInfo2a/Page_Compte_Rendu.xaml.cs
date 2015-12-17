@@ -45,7 +45,35 @@ namespace ProjetInfo2a
             Case_Texte_CR.Visibility = Visibility.Hidden;
             Bouton_Modifier_CR.Visibility = Visibility.Visible;
             Case_Texte_CR_MAJ.Visibility = Visibility.Visible;
+
+            //sérialiser dans le planning.xml
         }
 
+        // Afiche le titre du CR
+        private void Titre_CR_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock tbk = sender as TextBlock;
+
+            //titre du CR s'il existe
+            string titre = _cr.getTitre();
+            if (titre != null)
+                tbk.Text = titre;
+            //sinon titre par défaut
+            else
+                tbk.Text = "Compte-Rendu du Jour " + _cr.getDate().ToString();
+        }
+
+        private void ContenuCR_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock tbk = sender as TextBlock;
+
+            //récup contenu s'il existe
+            string contenu = _cr.getContenu();
+            if (contenu != null)
+                tbk.Text = contenu;
+            //sinon message par défaut
+            else
+                tbk.Text = "Aucun compte-rendu n'a été rédigé pour ce jour";
+        }
     }
 }
