@@ -3,13 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       Height="800" Width="600"
-	Title="Activite" ShowsNavigationUI="False">
+	Title="Activite" ShowsNavigationUI="False" Loaded="Page_Loaded">
 
     <Grid Background="White" Margin="-390,32,-390,0">
         <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="Activité" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
         <Button Content="Voir Carte" Name="Consulter_Carte" Margin="540,610,540,0" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FF81CFE0" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Click="Bouton_Carte" Height="36"/>
         <Button Content="Supprimer" x:Name="Bouton_Supprimer_Activite" Margin="372,680,708,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FFF9690E" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="36"/>
-        <Button Content="Enregistrer" x:Name="Enregistrer_Activite" Margin="708,680,372,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FF87D37C" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="36"/>
+        <Button Content="Enregistrer" x:Name="Enregistrer_Activite" Margin="708,680,372,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FF87D37C" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="36" Loaded="Enregistrer_Activite_Loaded"/>
         <TextBlock HorizontalAlignment="Center" Margin="214,200,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de début :"/>
         <TextBlock HorizontalAlignment="Center" Margin="214,260,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de fin :"/>
         <TextBlock HorizontalAlignment="Center" Margin="214,320,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Astronautes concernés :"/>
