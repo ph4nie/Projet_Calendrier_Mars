@@ -98,7 +98,7 @@
     <Activite hDebut="8" hFin="12" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="12" hFin="14" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="14" hFin="19" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
-    <Activite hDebut="19" hFin="21" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
+    <Activite hDebut="19" hFin="21" categorie="" astronautes="" lieu="" descriptif="" sortieExt="False" />
     <Activite hDebut="21" hFin="23" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="23" hFin="24,4" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
   </Jour>
