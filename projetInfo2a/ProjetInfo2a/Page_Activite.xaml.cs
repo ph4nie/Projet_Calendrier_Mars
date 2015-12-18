@@ -43,11 +43,12 @@ namespace ProjetInfo2a
         {
             Case_Texte_HD.SetBinding(TextBox.TextProperty, new Binding("HeureDebut"));
             Case_Texte_HF.SetBinding(TextBox.TextProperty, new Binding("HeureFin"));
-           // Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
+            // Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
             Case_Texte_Position.SetBinding(TextBox.TextProperty, new Binding("Lieu"));
             Case_Texte_Descriptif.SetBinding(TextBox.TextProperty, new Binding("Descriptif"));
+            Case_Selection_Categorie.SetBinding(ComboBox.ItemsSourceProperty, new Binding("ListCategories"));
 
-           
+
         }
 
         private void Enregistrer_Activite(object sender, RoutedEventArgs e)
@@ -103,14 +104,6 @@ namespace ProjetInfo2a
             //retourne sur la page du jour
             Page_Jour jour = new Page_Jour(_activite.Date);
             this.NavigationService.Navigate(jour);
-        }
-
-        private void Case_Selection_Categorie_Loaded(object sender, RoutedEventArgs e)
-        {
-            ComboBox cmbx = sender as ComboBox;
-            
-            cmbx.SetBinding(ComboBox.ItemsSourceProperty, new Binding("categories"));
-            
         }
     }
 }

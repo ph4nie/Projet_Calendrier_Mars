@@ -29,7 +29,7 @@ namespace ProjetInfo2a
         {
             InitializeComponent();
 
-            // crée la mission et l'initialise depuis XML
+            // crée la mission qui s'initialise depuis XML
             _LAmission = new ClassMission();
         }
 

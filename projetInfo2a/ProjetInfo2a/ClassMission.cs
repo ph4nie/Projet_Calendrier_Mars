@@ -260,6 +260,7 @@ namespace ProjetInfo2a
                 {
                     ClassActivite activite = new ClassActivite();
                     activite.Date = jour;
+                    activite.ListCategories = this.getActivites();
 
                     //récupère l'attribut categorie
                     XmlAttribute xml_attr = nodeAct.Attributes["categorie"];

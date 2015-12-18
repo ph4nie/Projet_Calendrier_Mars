@@ -42,7 +42,7 @@ namespace ProjetInfo2a
         {
             get; set;
         }
-        public static List<string> categories
+        public List<string> ListCategories
         {
             get; set;
         }
@@ -51,7 +51,6 @@ namespace ProjetInfo2a
         {
             Astronautes = new List<string>();
             Lieu = new ClassLieu();
-            categories = ((MainWindow)System.Windows.Application.Current.MainWindow).getMission().getActivites();
         }
 
 
