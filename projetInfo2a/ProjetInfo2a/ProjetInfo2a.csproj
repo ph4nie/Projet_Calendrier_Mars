@@ -176,34 +176,28 @@
     <Resource Include="next.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="carte.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="map.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="communication.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="living.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="science.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="maintenance.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="repair.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="emergency.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="astronaut.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="spaceshuttle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="scaphander.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vehicle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="outisde-experiment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vehicle-Futur.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

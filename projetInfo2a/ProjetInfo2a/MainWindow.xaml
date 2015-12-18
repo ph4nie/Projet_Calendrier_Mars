@@ -41,8 +41,8 @@
         <Menu IsMainMenu="True" Margin="0,0,0,0" VerticalAlignment="Top" Height="32" Padding="10,0,0,0" Background="#2C3E50">
             <MenuItem Header="Accueil" Click="Accueil_Click" Background="{x:Null}" FontSize="14" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0" Padding="7,5,8,6"  Margin=" 0,4,0,0"/>
             <MenuItem Header="Planning" Click="Planning_Click" Background="{x:Null}" FontSize="14" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0" Padding="7,5,8,6"  Margin=" 0,4,0,0"/>
-            <MenuItem Header="Exploration" Click="Exploration_Click" Background="{x:Null}" FontSize="14" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0" Padding="7,5,8,6" Margin="0,4,0,0" />
             <MenuItem Header="Recherche" Click="Recherche_Click" Background="{x:Null}" FontSize="14" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0" Padding="7,5,8,6" Margin="0,4,0,0" />
+            <MenuItem Header="Exploration" Click="Exploration_Click" Background="{x:Null}" FontSize="14" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0" Padding="7,5,8,6" Margin="0,4,0,0" />
 
         </Menu>
         <DockPanel>

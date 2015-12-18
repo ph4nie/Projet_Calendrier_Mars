@@ -12,20 +12,16 @@
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" Margin="146,100,147,0" TextWrapping="Wrap" Text="Exploration" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <Image x:Name="Carte" Margin="0,194,65,0" HorizontalAlignment="Right" VerticalAlignment="Top" Source="map.jpg" Stretch="Fill" Width="1000" Grid.RowSpan="2" Height="462"/>
-        <TextBlock HorizontalAlignment="Left" Margin="57,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="18"><Run Text="Légende"/><Run Language="fr-fr" Text=" :"/></TextBlock>
-        <Image Margin="81,352,1269,318" Source="communication.png" Stretch="Fill" RenderTransformOrigin="-1.094,0.344" Width="30" Height="30" Grid.RowSpan="2"/>
-        <Image Margin="81,241,1269,109" Source="living.png" Stretch="Fill" Width="30" Height="30"/>
-        <Image Margin="81,278,1269,72" Source="science.png" Stretch="Fill" RenderTransformOrigin="1.438,0.562" Width="30" Height="30"/>
-        <Image Margin="81,315,1269,35" Source="maintenance.png" Stretch="Fill" Width="30" Height="30"/>
-        <Image Margin="81,9,1269,281" Source="repair.png" Stretch="Fill" RenderTransformOrigin="-0.531,0.688" Grid.Row="1" Width="30" Height="30"/>
-        <Image Margin="81,46,1269,244" Source="emergency.png" Stretch="Fill" Grid.Row="1" Width="30" Height="30" RenderTransformOrigin="0.533,0.8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="126,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16"><Run Language="fr-fr" Text="Living"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="126,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16"><Run Language="fr-fr" Text="Science"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="126,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16"><Run Language="fr-fr" Text="Maintenance"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="126,352,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16"><Run Language="fr-fr" Text="Communication"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="126,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16" Grid.Row="1"><Run Language="fr-fr" Text="Repair"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="126,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="119" FontSize="16" Grid.Row="1"><Run Language="fr-fr" Text="Emergency"/></TextBlock>
+        <Image x:Name="Carte" Margin="0,194,35,0" HorizontalAlignment="Right" VerticalAlignment="Top" Source="map.jpg" Stretch="Fill" Width="1000" Grid.RowSpan="2" Height="462"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="24" Text="Science :" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="18.667" Text="Exploration :" TextAlignment="Right" FontWeight="Bold"/>
+        <Image x:Name="scaphander_png" Margin="57,282,1253,28" Source="scaphander.png" Stretch="Fill" Width="70" Height="70"/>
+        <Image x:Name="vehicle_png" Margin="57,357,1253,273" Source="vehicle.png" Stretch="Fill" Width="70" Height="70" Grid.RowSpan="2"/>
+        <Image x:Name="outisde_experiment_png" Margin="57,52,1253,198" Grid.Row="1" Source="outisde-experiment.png" Stretch="Fill" Width="70" Height="70"/>
+        <TextBlock HorizontalAlignment="Left" Margin="132,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="118" FontSize="18.667" Text="scaphandre"/>
+        <TextBlock HorizontalAlignment="Left" Margin="132,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="118" FontSize="18.667" Text="véhicule" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="132,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="178" FontSize="18.667" Text="expérience extèrieure" Grid.Row="1"/>
+        <Image x:Name="base_png" Margin="824,34,506,236" Grid.Row="1" Source="base.png" Stretch="Fill" Width="50" Height="50"/>
 
 
     </Grid>

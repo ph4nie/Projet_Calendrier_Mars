@@ -45,5 +45,6 @@ namespace ProjetInfo2a
             //liaison entre les données et l'affichage 
             grid.SetBinding(DataGrid.ItemsSourceProperty, new Binding("Categorie"));
         }
+
     }
 }
