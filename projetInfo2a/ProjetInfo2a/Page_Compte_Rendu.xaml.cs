@@ -38,8 +38,9 @@ namespace ProjetInfo2a
             Texte_1000_caract.Visibility = Visibility.Visible;
             Case_Texte_CR_Modif.Visibility = Visibility.Visible;
             Case_Texte_CR.Visibility = Visibility.Hidden;
+            Titre_CR_Modif.Visibility = Visibility.Visible;
 
-            Case_Texte_CR.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
+            Case_Texte_CR_Modif.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
             Titre_CR_Modif.SetBinding(TextBox.TextProperty, new Binding("_titre"));
         }
 
@@ -48,6 +49,7 @@ namespace ProjetInfo2a
             Bouton_Enregistrer_CR.Visibility = Visibility.Hidden;
             Texte_1000_caract.Visibility = Visibility.Hidden;
             Case_Texte_CR_Modif.Visibility = Visibility.Hidden;
+            Titre_CR_Modif.Visibility = Visibility.Hidden;
             Bouton_Modifier_CR.Visibility = Visibility.Visible;
             Case_Texte_CR.Visibility = Visibility.Visible;
 
@@ -62,7 +64,7 @@ namespace ProjetInfo2a
         private void Titre_CR_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock tbk = sender as TextBlock;
-            
+
             //lie le textblock à la propriété _titre
             tbk.SetBinding(TextBlock.TextProperty, new Binding("_titre"));
         }
@@ -70,7 +72,7 @@ namespace ProjetInfo2a
         private void ContenuCR_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock tbk = sender as TextBlock;
-            
+
             //lie le textblock à _contenu
             tbk.SetBinding(TextBlock.TextProperty, new Binding("_contenu"));
 
@@ -91,7 +93,7 @@ namespace ProjetInfo2a
                 MessageBox.Show(message);
                 return;
             }
-            
+
             //recupère le jour concerné
             XmlNode jourJ = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _cr._date + "']");
 
@@ -100,9 +102,8 @@ namespace ProjetInfo2a
             if (exCR != null)
             {
                 //modif de l'existant
-
-                //MàJ contenu modifié
-                jourJ.AppendChild(exCR);
+                exCR.Attributes["titre"].Value = Titre_CR_Modif.Text;
+                exCR.InnerText = Case_Texte_CR_Modif.Text;
             }
             else
             {
@@ -114,10 +115,10 @@ namespace ProjetInfo2a
                 //insère la balise CompteRendu remplie dans planning.xml
                 jourJ.AppendChild(cr);
             }
-            
+
             xmlDocOut.Save(path);
         }
 
-        
+
     }
 }

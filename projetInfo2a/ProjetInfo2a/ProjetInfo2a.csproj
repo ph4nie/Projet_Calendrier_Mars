@@ -34,7 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>spaceshuttle.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MahApps.Metro">
@@ -180,9 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="astronaut.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="spaceshuttle.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="scaphander.png" />
