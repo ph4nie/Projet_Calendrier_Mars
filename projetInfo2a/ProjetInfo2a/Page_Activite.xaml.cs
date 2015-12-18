@@ -43,7 +43,7 @@ namespace ProjetInfo2a
         {
             Case_Texte_HD.SetBinding(TextBox.TextProperty, new Binding("HeureDebut"));
             Case_Texte_HF.SetBinding(TextBox.TextProperty, new Binding("HeureFin"));
-            // Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
+            Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
             Case_Texte_Position.SetBinding(TextBox.TextProperty, new Binding("Lieu"));
             Case_Texte_Descriptif.SetBinding(TextBox.TextProperty, new Binding("Descriptif"));
             Case_Selection_Categorie.SetBinding(ComboBox.ItemsSourceProperty, new Binding("ListCategories"));

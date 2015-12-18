@@ -15,14 +15,7 @@ namespace ProjetInfo2a
             get; set;
         }
         public string _contenu
-        {/*
-            get { return _contenu; }
-            set
-            {
-                if (int.Parse(value) <= _nbCaractMax)
-                    _contenu = value;
-            }
-            */
+        {
             get; set;
         }
         
