@@ -211,7 +211,7 @@ namespace ProjetInfo2a
             foreach (XmlNode node in nl)
             {
                 ClassActivite activite = new ClassActivite();
-                
+
                 XmlAttribute xml_attr = node.Attributes["categorie"];
                 activite.Categorie = xml_attr.Value;
                 xml_attr = node.Attributes["nom"];
@@ -282,9 +282,6 @@ namespace ProjetInfo2a
                         activite.SortieExt = true;
                     else
                         activite.SortieExt = false;
-
-                    activite.Date = jour; //le jour qu'on est en train de créer
-
 
                     jour.ajouterActivite(activite);
                 }

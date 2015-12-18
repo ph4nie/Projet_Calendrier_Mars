@@ -51,7 +51,7 @@ namespace ProjetInfo2a
         {
             Astronautes = new List<string>();
             Lieu = new ClassLieu();
-           // categories = Date.getMission().getActivites();
+            categories = ((MainWindow)System.Windows.Application.Current.MainWindow).getMission().getActivites();
         }
 
 
