@@ -39,6 +39,8 @@
     <Activite hDebut="19" hFin="21" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="21" hFin="23" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="23" hFin="24,4" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
+    <CompteRendu titre="Compte-Rendu du Jour 4">
+    </CompteRendu>
   </Jour>
   <Jour numero="5">
     <Activite hDebut="0" hFin="7" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
@@ -109,6 +111,8 @@
     <Activite hDebut="19" hFin="21" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="21" hFin="23" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="23" hFin="24,4" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
+    <CompteRendu titre="Compte-Rendu du Jour 11">
+    </CompteRendu>
   </Jour>
   <Jour numero="12">
     <Activite hDebut="0" hFin="7" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />

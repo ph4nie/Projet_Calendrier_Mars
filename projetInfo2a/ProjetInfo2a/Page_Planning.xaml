@@ -10,7 +10,7 @@
             <RowDefinition Height="483*"/>
             <RowDefinition Height="317*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="Planning" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Planning" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
         <Label x:Name="Jour_1"  HorizontalAlignment="Left" Margin="255,210,0,0" VerticalAlignment="Top" Width="120" Height="120" Background="#FF6C7A89" Foreground="White" FontSize="20" FontWeight="Bold" Loaded="Jour_Loaded" MouseDoubleClick="AfficherJourJ" />
         <Label x:Name="Jour_2"  HorizontalAlignment="Left" Margin="380,210,0,0" VerticalAlignment="Top" Width="120" Height="120" Background="#FF6C7A89" Foreground="White" FontSize="20" FontWeight="Bold" Loaded="Jour_Loaded" MouseDoubleClick="AfficherJourJ" />
         <Label x:Name="Jour_3"  HorizontalAlignment="Left" Margin="505,210,0,0" VerticalAlignment="Top" Width="120" Height="120" Background="#FF6C7A89" Foreground="White" FontSize="20" FontWeight="Bold" Loaded="Jour_Loaded" MouseDoubleClick="AfficherJourJ" />

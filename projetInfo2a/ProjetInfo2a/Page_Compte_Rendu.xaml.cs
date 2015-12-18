@@ -39,6 +39,7 @@ namespace ProjetInfo2a
             Case_Texte_CR_Modif.Visibility = Visibility.Visible;
             Case_Texte_CR.Visibility = Visibility.Hidden;
             Titre_CR_Modif.Visibility = Visibility.Visible;
+            Titre_CR.Visibility = Visibility.Hidden;
 
             Case_Texte_CR_Modif.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
             Titre_CR_Modif.SetBinding(TextBox.TextProperty, new Binding("_titre"));

@@ -11,9 +11,9 @@
             <RowDefinition Height="80*"/>
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Center" Margin="146,100,147,0" TextWrapping="Wrap" Text="Exploration" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <Image x:Name="Carte" Margin="0,194,35,0" HorizontalAlignment="Right" VerticalAlignment="Top" Source="map.jpg" Stretch="Fill" Width="1000" Grid.RowSpan="2" Height="462"/>
-        <TextBlock HorizontalAlignment="Left" Margin="57,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="24" Text="Science :" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Exploration" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
+        <Image x:Name="Carte" Margin="0,150,35,0" HorizontalAlignment="Right" VerticalAlignment="Top" Source="map.jpg" Stretch="Fill" Width="1000" Grid.RowSpan="2" Height="490"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="24" Text="Science " FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="119" FontSize="18.667" Text="Exploration :" TextAlignment="Right" FontWeight="Bold"/>
         <Image x:Name="scaphander_png" Margin="57,282,1253,28" Source="scaphander.png" Stretch="Fill" Width="70" Height="70"/>
         <Image x:Name="vehicle_png" Margin="57,357,1253,273" Source="vehicle.png" Stretch="Fill" Width="70" Height="70" Grid.RowSpan="2"/>
@@ -21,7 +21,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="132,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="118" FontSize="18.667" Text="scaphandre"/>
         <TextBlock HorizontalAlignment="Left" Margin="132,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="118" FontSize="18.667" Text="véhicule" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="132,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="178" FontSize="18.667" Text="expérience extèrieure" Grid.Row="1"/>
-        <Image x:Name="base_png" Margin="824,34,506,236" Grid.Row="1" Source="base.png" Stretch="Fill" Width="50" Height="50"/>
+        <Image x:Name="base_png" Margin="818,10,512,260" Source="base.png" Stretch="Fill" Width="50" Height="50" Grid.Row="1"/>
 
 
     </Grid>
