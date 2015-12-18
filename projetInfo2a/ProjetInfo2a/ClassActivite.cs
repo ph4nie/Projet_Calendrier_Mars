@@ -42,11 +42,16 @@ namespace ProjetInfo2a
         {
             get; set;
         }
+        public static List<string> categories
+        {
+            get; set;
+        }
 
         public ClassActivite()
         {
             Astronautes = new List<string>();
             Lieu = new ClassLieu();
+           // categories = Date.getMission().getActivites();
         }
 
 

@@ -10,7 +10,10 @@ namespace ProjetInfo2a
 {
     public class ClassMission
     {
-        private List<String> _activites;
+        public List<String> _activites
+        {
+            get; set;
+        }
         private int _nbAstraunautes;
         private List<String> _astronautes;
         private ClassLieu _lieu;
@@ -113,7 +116,6 @@ namespace ProjetInfo2a
         // désérialisation de <mission>
         private void load_mission(XmlDocument doc)
         {
-            _lieu = new ClassLieu();
             // on crée un noeud pour la balise mission
             XmlNode node = doc.SelectSingleNode("/informations/mission");
 
@@ -209,6 +211,7 @@ namespace ProjetInfo2a
             foreach (XmlNode node in nl)
             {
                 ClassActivite activite = new ClassActivite();
+                
                 XmlAttribute xml_attr = node.Attributes["categorie"];
                 activite.Categorie = xml_attr.Value;
                 xml_attr = node.Attributes["nom"];
@@ -256,6 +259,7 @@ namespace ProjetInfo2a
                 foreach (XmlNode nodeAct in listActs)
                 {
                     ClassActivite activite = new ClassActivite();
+                    activite.Date = jour;
 
                     //récupère l'attribut categorie
                     XmlAttribute xml_attr = nodeAct.Attributes["categorie"];

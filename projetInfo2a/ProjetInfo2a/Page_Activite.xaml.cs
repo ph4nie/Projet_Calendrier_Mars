@@ -29,7 +29,7 @@ namespace ProjetInfo2a
 
             _activite = activite;
 
-            DataContext = _activite; //pour Binding
+            DataContext = _activite; //référentiel pour Binding
         }
 
         private void Bouton_Carte(object sender, RoutedEventArgs e)
@@ -43,12 +43,14 @@ namespace ProjetInfo2a
         {
             Case_Texte_HD.SetBinding(TextBox.TextProperty, new Binding("HeureDebut"));
             Case_Texte_HF.SetBinding(TextBox.TextProperty, new Binding("HeureFin"));
-            Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
+           // Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
             Case_Texte_Position.SetBinding(TextBox.TextProperty, new Binding("Lieu"));
             Case_Texte_Descriptif.SetBinding(TextBox.TextProperty, new Binding("Descriptif"));
+
+           
         }
 
-        private void Enregistrer_Activite_Loaded(object sender, RoutedEventArgs e)
+        private void Enregistrer_Activite(object sender, RoutedEventArgs e)
         {
             XmlDocument xmlDocOut = new XmlDocument();
             string path = "../../Data/planning.xml";
@@ -74,7 +76,7 @@ namespace ProjetInfo2a
                 //modif la balise existante
                 exAct.Attributes["hDebut"].Value = Case_Texte_HD.Text;
                 exAct.Attributes["hFin"].Value = Case_Texte_HF.Text;
-                exAct.Attributes["categorie"].Value = "";// Case_Texte_Categorie.Text;
+                exAct.Attributes["categorie"].Value = Case_Selection_Categorie.SelectedItem.ToString();
                 exAct.Attributes["astronautes"].Value = Case_Texte_Astronautes.Text;
                 exAct.Attributes["lieu"].Value = Case_Texte_Position.Text;
                 exAct.Attributes["descriptif"].Value = Case_Texte_Descriptif.Text;
@@ -86,7 +88,7 @@ namespace ProjetInfo2a
                 XmlElement act = xmlDocOut.CreateElement("Activite");
                 act.SetAttribute("hDebut", Case_Texte_HD.Text);
                 act.SetAttribute("hFin", Case_Texte_HF.Text);
-                act.SetAttribute("categorie", "categorie");
+                act.SetAttribute("categorie", Case_Selection_Categorie.SelectedItem.ToString());
                 act.SetAttribute("astronautes", Case_Texte_Astronautes.Text);
                 act.SetAttribute("lieu", Case_Texte_Position.Text);
                 act.SetAttribute("descriptif", Case_Texte_Descriptif.Text);
@@ -97,8 +99,19 @@ namespace ProjetInfo2a
             }
 
             xmlDocOut.Save(path);
+
+            //retourne sur la page du jour
+            Page_Jour jour = new Page_Jour(_activite.Date);
+            this.NavigationService.Navigate(jour);
         }
 
+        private void Case_Selection_Categorie_Loaded(object sender, RoutedEventArgs e)
+        {
+            ComboBox cmbx = sender as ComboBox;
+            
+            cmbx.SetBinding(ComboBox.ItemsSourceProperty, new Binding("categories"));
+            
+        }
     }
 }
 

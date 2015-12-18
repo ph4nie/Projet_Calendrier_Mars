@@ -6,17 +6,16 @@
 	Title="Activite" ShowsNavigationUI="False" Loaded="Page_Loaded">
 
     <Grid Background="White" Margin="-390,32,-390,0">
-<<<<<<< HEAD
         <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Modifier l'activité" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <ComboBox x:Name="Case_Selection_Categorie" HorizontalAlignment="Center" Margin="332,158,748,0" VerticalAlignment="Top" FontSize="18" Width="300" Height="38">
-            <ComboBoxItem Content="Sélectionnez une catégorie" IsEnabled="False"/>
+        <ComboBox x:Name="Case_Selection_Categorie" HorizontalAlignment="Center" Margin="332,158,748,0" VerticalAlignment="Top" FontSize="18" Width="300" Height="38" BorderBrush="#FF34495E" Loaded="Case_Selection_Categorie_Loaded">
+            <!--<ComboBoxItem Content="Sélectionnez une catégorie" IsEnabled="False"/>
             <ComboBoxItem Content="Living"/>
             <ComboBoxItem Content="Science"/>
-            <ComboBoxItem Content="Maintenance"/>
+            <ComboBoxItem Content="Maintenance"/>-->
         </ComboBox>
         <Button Content="Voir Carte" x:Name="Consulter_Carte" Margin="1010,398,70,0" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FF81CFE0" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Click="Bouton_Carte" Height="38"/>
-        <Button Content="Supprimer" x:Name="Bouton_Supprimer_Activite" Margin="1010,558,70,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FFF9690E" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="38"/>
-        <Button Content="Enregistrer" x:Name="Enregistrer_Activite" Margin="1010,478,70,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FF87D37C" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="38"/>
+        <Button Content="Supprimer" x:Name="Bouton_Supprimer_Activite" Margin="1010,558,70,0" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FFF9690E" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="38"/>
+        <Button Content="Enregistrer" x:Name="Bouton_Enregistrer_Activite" Margin="1010,478,70,0" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FF87D37C" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="38" Click="Enregistrer_Activite" />
         <TextBlock HorizontalAlignment="Center" Margin="48,218,1094,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de début :"/>
         <TextBlock HorizontalAlignment="Center" Margin="48,278,1094,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de fin :"/>
         <TextBlock HorizontalAlignment="Center" Margin="48,338,1094,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Astronautes concernés :"/>
@@ -29,22 +28,5 @@
         <TextBox x:Name="Case_Texte_Astronautes" HorizontalAlignment="Left" Height="38" Margin="332,338,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="516" FontSize="17" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
         <TextBox x:Name="Case_Texte_Position" HorizontalAlignment="Left" Height="38" Margin="332,398,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="300" FontSize="17" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
         <TextBlock HorizontalAlignment="Center" Margin="48,158,1094,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Catégorie :"/>
-=======
-        <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="Activité" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <Button Content="Voir Carte" Name="Consulter_Carte" Margin="540,610,540,0" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FF81CFE0" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Click="Bouton_Carte" Height="36"/>
-        <Button Content="Supprimer" x:Name="Bouton_Supprimer_Activite" Margin="372,680,708,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FFF9690E" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="36"/>
-        <Button Content="Enregistrer" x:Name="Enregistrer_Activite" Margin="708,680,372,0" VerticalAlignment="Top" Width="300" Cursor="None" Background="#FF87D37C" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E" HorizontalAlignment="Center" Height="36" Loaded="Enregistrer_Activite_Loaded"/>
-        <TextBlock HorizontalAlignment="Center" Margin="214,200,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de début :"/>
-        <TextBlock HorizontalAlignment="Center" Margin="214,260,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Heure de fin :"/>
-        <TextBlock HorizontalAlignment="Center" Margin="214,320,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Astronautes concernés :"/>
-        <TextBlock HorizontalAlignment="Center" Margin="214,380,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Position du lieu sur la carte :"/>
-        <TextBlock HorizontalAlignment="Center" Margin="214,440,928,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TextAlignment="Right" Width="238" Text="Descriptif de l'activité :"/>
-        <TextBox x:Name="Case_Texte_Descriptif" HorizontalAlignment="Left" Height="86" Margin="558,440,0,0" TextWrapping="Wrap" Text="Descriptif de l'acitivité" VerticalAlignment="Top" Width="740" FontSize="18" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="558,531,0,0" TextWrapping="Wrap" Text="* Pas plus de 400 caractères" VerticalAlignment="Top" Height="27" Width="220" FontSize="14"/>
-        <TextBox x:Name="Case_Texte_HD" HorizontalAlignment="Left" Height="38" Margin="558,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="740" FontSize="18" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
-        <TextBox x:Name="Case_Texte_HF" HorizontalAlignment="Left" Height="38" Margin="558,260,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="740" FontSize="18" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
-        <TextBox x:Name="Case_Texte_Astronautes" HorizontalAlignment="Left" Height="38" Margin="558,320,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="740" FontSize="18" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
-        <TextBox x:Name="Case_Texte_Position" HorizontalAlignment="Left" Height="38" Margin="558,380,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="740" FontSize="18" Controls:TextBoxHelper.ClearTextButton="True" BorderBrush="#FF34495E" SelectionBrush="#FF34495E"/>
->>>>>>> origin/master
-    </Grid>
+        </Grid>
 </Page>
