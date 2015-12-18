@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <informations>
-  <mission t0="01/01/2016" duree="500"/>
+  <mission t0="01/12/2015" duree="500"/>
   <lieu nom="Iron Valley">
     <carte image="carte.png" echelle="30"/>
     <position latitude="136" longitude="42"/>

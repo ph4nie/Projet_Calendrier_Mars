@@ -22,6 +22,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="132,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="118" FontSize="18.667" Text="véhicule" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="132,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="178" FontSize="18.667" Text="expérience extèrieure" Grid.Row="1"/>
         <Image x:Name="base_png" Margin="818,10,512,260" Source="base.png" Stretch="Fill" Width="50" Height="50" Grid.Row="1"/>
+        <Image x:Name="outside_experiment_Passe_png" Margin="853,65,477,205" Grid.Row="1" Source="outside-experiment-Passe.png" Stretch="Fill" Width="50" Height="50"/>
+        <Image x:Name="scaphander_Futur_png" Margin="890,282,440,48" Source="scaphander-Futur.png" Stretch="Fill" Width="50" Height="50"/>
+        <Image x:Name="vehicle_Futur_png" Margin="462,52,868,218" Grid.Row="1" Source="vehicle-Futur.png" Stretch="Fill" Width="50" Height="50"/>
+        <Image x:Name="scaphander_Passe_png" Margin="1000,128,330,142" Source="scaphander-Passe.png" Stretch="Fill" Width="50" Height="50" RenderTransformOrigin="-0.98,0.48" Grid.Row="1"/>
+        <Image x:Name="vehicle_Present_png" Margin="699,161,631,109" Grid.Row="1" Source="vehicle-Present.png" Stretch="Fill" Width="50" Height="50"/>
+        <Image x:Name="outside_experiment_Present_png" Margin="390,194,862,58" Source="outside-experiment-Present.png" Stretch="Fill" Width="50" Height="50"/>
 
 
     </Grid>
