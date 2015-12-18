@@ -8,12 +8,12 @@
     <Grid Background="White" Margin="-390,32,-390,0">
         <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
         <TextBlock x:Name="Titre_Jour" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="Jour X" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" Width="600"/>
-        <DataGrid x:Name="DataGridActivites" HorizontalAlignment="center" Margin="90,206,90,0" VerticalAlignment="Top" Width="1194" ItemsSource="{Binding}" Loaded="DataGridActivites_Loaded" IsReadOnly="true">
-            <DataGrid.ItemContainerStyle>
+        <DataGrid x:Name="DataGridActivites" HorizontalAlignment="center" Margin="90,206,90,0" VerticalAlignment="Top" Width="1194" ItemsSource="{Binding}" Loaded="DataGridActivites_Loaded" MouseDoubleClick="Voir_Activite" IsReadOnly="true">
+            <!--<DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" />
+                    <EventSetter Event="MouseDoubleClick" Handler="Voir_Activite" />
                 </Style>
-            </DataGrid.ItemContainerStyle>
+            </DataGrid.ItemContainerStyle>-->
         </DataGrid>
         <Button x:Name="Bouton_Consulter_CR" Content="Voir le compte-rendu" HorizontalAlignment="center" Margin="524,566,524,162" VerticalAlignment="Top" Width="300" Cursor="Arrow" Background="#FF81CFE0" FontSize="18" FontWeight="Bold" BorderBrush="#FF34495E" Foreground="#FF34495E"  Click="Consulter_CR"/>
     </Grid>

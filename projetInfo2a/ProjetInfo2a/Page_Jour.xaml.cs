@@ -45,13 +45,16 @@ namespace ProjetInfo2a
             this.NavigationService.Navigate(page_cr);
         }
 
-        private void Voir_Activite(object sender, MouseButtonEventArgs e)
+        public void Voir_Activite(object sender, MouseButtonEventArgs e)
         {
-            DataGridCell cell = sender as DataGridCell;
-            int ID = (int)cell.Content;
+            MessageBox.Show("test voir activite", "test");
+            
+            DataGridRow ligne = sender as DataGridRow;
+            int ID = ligne.GetIndex();
             ClassActivite act = _jour.Activites[ID];
             Page_Activite activite = new Page_Activite(act);
             this.NavigationService.Navigate(activite);
+            
         }
 
         
