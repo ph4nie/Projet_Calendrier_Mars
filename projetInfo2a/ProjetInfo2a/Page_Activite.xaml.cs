@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace ProjetInfo2a
 {
@@ -38,13 +39,66 @@ namespace ProjetInfo2a
 
         }
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DataGrid grid = sender as DataGrid;
+            Case_Texte_HD.SetBinding(TextBox.TextProperty, new Binding("HeureDebut"));
+            Case_Texte_HF.SetBinding(TextBox.TextProperty, new Binding("HeureFin"));
+            Case_Texte_Astronautes.SetBinding(TextBox.TextProperty, new Binding("Astronautes"));
+            Case_Texte_Position.SetBinding(TextBox.TextProperty, new Binding("Lieu"));
+            Case_Texte_Descriptif.SetBinding(TextBox.TextProperty, new Binding("Descriptif"));
+        }
 
-            //liaison entre les données et l'affichage 
-            grid.SetBinding(DataGrid.ItemsSourceProperty, new Binding("Categorie"));
+        private void Enregistrer_Activite_Loaded(object sender, RoutedEventArgs e)
+        {
+            XmlDocument xmlDocOut = new XmlDocument();
+            string path = "../../Data/planning.xml";
+            try
+            {
+                xmlDocOut.Load(path);
+            }
+            catch
+            {
+                string message = "Le fichier XML de sauvegarde n'a pas été trouvé dans le répertoire.";
+                MessageBox.Show(message);
+                return;
+            }
+
+            //recupère le jour concerné
+            XmlNode jourJ = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _activite.Date + "']");
+
+            //récupère le creneau correspondant à l'activité s'il existe dans le planning.xml
+            XmlNode exAct = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _activite.Date
+                + "']/Activite[@hDebut='" + _activite.HeureDebut + "']");
+            if (exAct != null)
+            {
+                //modif la balise existante
+                exAct.Attributes["hDebut"].Value = Case_Texte_HD.Text;
+                exAct.Attributes["hFin"].Value = Case_Texte_HF.Text;
+                exAct.Attributes["categorie"].Value = "";// Case_Texte_Categorie.Text;
+                exAct.Attributes["astronautes"].Value = Case_Texte_Astronautes.Text;
+                exAct.Attributes["lieu"].Value = Case_Texte_Position.Text;
+                exAct.Attributes["descriptif"].Value = Case_Texte_Descriptif.Text;
+                exAct.Attributes["sortieExt"].Value = _activite.SortieExt.ToString();
+            }
+            else
+            {
+                //crée une activité
+                XmlElement act = xmlDocOut.CreateElement("Activite");
+                act.SetAttribute("hDebut", Case_Texte_HD.Text);
+                act.SetAttribute("hFin", Case_Texte_HF.Text);
+                act.SetAttribute("categorie", "categorie");
+                act.SetAttribute("astronautes", Case_Texte_Astronautes.Text);
+                act.SetAttribute("lieu", Case_Texte_Position.Text);
+                act.SetAttribute("descriptif", Case_Texte_Descriptif.Text);
+
+
+                //insère la balise Activite remplie dans planning.xml
+                jourJ.AppendChild(act);
+            }
+
+            xmlDocOut.Save(path);
         }
 
     }
 }
+

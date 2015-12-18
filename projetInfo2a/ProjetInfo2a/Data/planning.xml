@@ -1,7 +1,7 @@
 <Planning>
   <Jour numero="1">
     <Activite hDebut="0" hFin="7" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
-    <Activite hDebut="7" hFin="8" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
+    <Activite hDebut="7" hFin="8" categorie="" astronautes="" lieu="" descriptif="" sortieExt="False" />
     <Activite hDebut="8" hFin="12" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="12" hFin="14" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="14" hFin="19" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />

@@ -102,7 +102,7 @@ namespace ProjetInfo2a
             XmlNode exCR = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _cr._date + "']/CompteRendu");
             if (exCR != null)
             {
-                //modif de l'existant
+                //modif la balise existante
                 exCR.Attributes["titre"].Value = Titre_CR_Modif.Text;
                 exCR.InnerText = Case_Texte_CR_Modif.Text;
             }
