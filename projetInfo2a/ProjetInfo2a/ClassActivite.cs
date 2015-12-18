@@ -21,6 +21,7 @@ namespace ProjetInfo2a
         {
             get; set;
         }
+
         public string Descriptif
         {
             get; set;
@@ -48,7 +49,6 @@ namespace ProjetInfo2a
             Lieu = new ClassLieu();
         }
 
-        
 
         public void ajoutAstronaute(string astronaute)
         {

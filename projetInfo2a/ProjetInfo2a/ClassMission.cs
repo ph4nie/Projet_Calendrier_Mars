@@ -30,7 +30,7 @@ namespace ProjetInfo2a
 
             chargerInfo(); //désérialise infosGenerales.xml
             LoadPlanning(); //désérialise planning.xml 
-         // initialisePlanning();  //sérialise un planning par défaut dans planning.xml
+                            // initialisePlanning();  //sérialise un planning par défaut dans planning.xml
             autoSetJourJ(); //actualise le jour courant
             autoSetStatuts(); //actualise le statut de chaq jour en fonction du jour courant
         }
@@ -285,6 +285,22 @@ namespace ProjetInfo2a
                     jour.ajouterActivite(activite);
                 }
 
+                XmlNode nodeCR = xmlDoc.SelectSingleNode("/Planning/Jour[@numero='" + index + "']/CompteRendu");
+                if (nodeCR != null)
+                {
+                    ClassCompteRendu cr = new ClassCompteRendu(jour);
+
+                    //récupère l'attribut titre
+                    XmlAttribute xml_attr = nodeCR.Attributes["titre"];
+                    //stocke sa valeur dans la propriété _titre de l'objet
+                    cr._titre = xml_attr.Value;
+
+                    //stocke le contenu de la balise dans la propriété _contenu
+                    cr._contenu = nodeCR.InnerText;
+
+                    jour.CompteRendu = cr;
+                }
+
                 _planning.Add(index, jour);
             }
         }
@@ -323,7 +339,7 @@ namespace ProjetInfo2a
                     activite.SetAttribute("hDebut", act.HeureDebut.ToString());
                     activite.SetAttribute("hFin", act.HeureFin.ToString());
                     activite.SetAttribute("categorie", act.Categorie);
-                    
+
                     //crée des attribus vides pour les champs non définis par défaut
                     activite.SetAttribute("astronautes", "");
                     activite.SetAttribute("lieu", "");

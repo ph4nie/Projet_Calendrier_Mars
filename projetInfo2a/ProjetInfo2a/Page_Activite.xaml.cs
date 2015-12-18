@@ -24,9 +24,11 @@ namespace ProjetInfo2a
 
         public Page_Activite(ClassActivite activite)
         {
+            InitializeComponent();
+
             _activite = activite;
 
-            InitializeComponent();
+            DataContext = _activite; //pour Binding
         }
 
         private void Bouton_Carte(object sender, RoutedEventArgs e)
@@ -34,6 +36,14 @@ namespace ProjetInfo2a
             Page_Exploration exploration = new Page_Exploration();
             this.NavigationService.Navigate(exploration);
 
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGrid grid = sender as DataGrid;
+
+            //liaison entre les données et l'affichage 
+            grid.SetBinding(DataGrid.ItemsSourceProperty, new Binding("Categorie"));
         }
     }
 }

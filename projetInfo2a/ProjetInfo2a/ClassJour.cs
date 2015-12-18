@@ -14,13 +14,13 @@ namespace ProjetInfo2a
         public List<ClassActivite> Activites
         {
             get; set;            //propriété public pour etre accessible à l'affichage avec le Binding
-        }  
+        }
         public ClassCompteRendu CompteRendu
         {
-            get; set;            
+            get; set;
         }
         public ClassMission _mission;
- 
+
         public ClassJour(ClassMission laMission)
         {
             _numero = compteurJours++;  //laMission._journeeDefaut sera le jour 0 (premier objet instancié)
@@ -29,8 +29,7 @@ namespace ProjetInfo2a
             _statut = "futur"; // obligatoire pour remplissage journée défaut
             _mission = laMission;
             Activites = new List<ClassActivite>();
-            CompteRendu = new ClassCompteRendu();
-            CompteRendu.setDate(this);
+            CompteRendu = new ClassCompteRendu(this);
         }
 
         public bool getSortieExte()
@@ -106,11 +105,11 @@ namespace ProjetInfo2a
             }
 
         }
-        
+
         public override string ToString()
         {
             return _numero.ToString();
         }
-        
+
     }
 }

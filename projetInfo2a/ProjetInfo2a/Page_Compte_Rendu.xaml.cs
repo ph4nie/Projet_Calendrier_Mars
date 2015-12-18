@@ -24,9 +24,10 @@ namespace ProjetInfo2a
 
         public Page_Compte_Rendu(ClassCompteRendu cr)
         {
-            _cr = cr;
-
             InitializeComponent();
+
+            _cr = cr;
+            DataContext = _cr; //référentiel pour Binding
         }
 
         private void Modifier_CR(object sender, RoutedEventArgs e)
@@ -46,6 +47,8 @@ namespace ProjetInfo2a
             Bouton_Modifier_CR.Visibility = Visibility.Visible;
             Case_Texte_CR_MAJ.Visibility = Visibility.Visible;
 
+            Case_Texte_CR_MAJ.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
+
             //sérialiser dans le planning.xml
         }
 
@@ -53,27 +56,18 @@ namespace ProjetInfo2a
         private void Titre_CR_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock tbk = sender as TextBlock;
-
-            //titre du CR s'il existe
-            string titre = _cr.getTitre();
-            if (titre != null)
-                tbk.Text = titre;
-            //sinon titre par défaut
-            else
-                tbk.Text = "Compte-Rendu du Jour " + _cr.getDate().ToString();
+            
+            //lie le textblock à la propriété _titre
+            tbk.SetBinding(TextBlock.TextProperty, new Binding("_titre"));
         }
 
         private void ContenuCR_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock tbk = sender as TextBlock;
+            
+            //lie le textblock à _contenu
+            tbk.SetBinding(TextBlock.TextProperty, new Binding("_contenu"));
 
-            //récup contenu s'il existe
-            string contenu = _cr.getContenu();
-            if (contenu != null)
-                tbk.Text = contenu;
-            //sinon message par défaut
-            else
-                tbk.Text = "Aucun compte-rendu n'a été rédigé pour ce jour";
         }
     }
 }

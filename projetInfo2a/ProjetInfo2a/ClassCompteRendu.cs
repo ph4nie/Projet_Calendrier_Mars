@@ -8,35 +8,30 @@ namespace ProjetInfo2a
 {
     public class ClassCompteRendu
     {
-        private string _titre;
-        private string _contenu;
-        private static int _nbCaractMax;
+        private static int _nbCaractMax = 1000;
+
+        public string _titre
+        {
+            get; set;
+        }
+        public string _contenu
+        {/*
+            get { return _contenu; }
+            set
+            {
+                if (int.Parse(value) <= _nbCaractMax)
+                    _contenu = value;
+            }
+            */
+            get; set;
+        }
+        
         public ClassJour _date;
 
-        public ClassCompteRendu()
+        public ClassCompteRendu(ClassJour date)
         {
-            _nbCaractMax = 1000;
-        }
-
-        public void setContenu(String newContenu)
-        {
-            if (newContenu.Length<=_nbCaractMax)
-            _contenu = newContenu;
-        }
-
-        public string getContenu()
-        {
-            return _contenu;
-        }
-
-        public string getTitre()
-        {
-            return _titre;
-        }
-
-        public void setTitre(String newTitre)
-        {
-            _titre = newTitre;
+            _date = date;
+            _titre = "Compte-Rendu du Jour " + _date;
         }
 
         public void setDate(ClassJour newDate)

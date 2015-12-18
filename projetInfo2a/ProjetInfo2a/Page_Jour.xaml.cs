@@ -47,21 +47,22 @@ namespace ProjetInfo2a
 
         public void Voir_Activite(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("test voir activite", "test");
-            
             DataGridRow ligne = sender as DataGridRow;
-            int ID = ligne.GetIndex();
+
+            //récupère l'index de la ligne correspondant à une activité dans la ligne
+            int ID = DataGridActivites.Items.IndexOf(DataGridActivites.CurrentItem);
+            //crée un pointeur vers cette activite
             ClassActivite act = _jour.Activites[ID];
+            //ouvre une page vers cette activité
             Page_Activite activite = new Page_Activite(act);
             this.NavigationService.Navigate(activite);
-            
+
         }
 
-        
+        //affiche sa liste d'activités dans le datagrid
         private void DataGridActivites_Loaded(object sender, RoutedEventArgs e)
         {
-            //affiche son dictionaire d'activités dans le datagrid
-            var grid = sender as DataGrid;
+            DataGrid grid = sender as DataGrid;
 
             //liaison entre les données et l'affichage 
             grid.SetBinding(DataGrid.ItemsSourceProperty, new Binding("Activites"));
