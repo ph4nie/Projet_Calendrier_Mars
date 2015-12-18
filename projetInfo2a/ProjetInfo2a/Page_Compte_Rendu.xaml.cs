@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace ProjetInfo2a
 {
@@ -35,21 +36,26 @@ namespace ProjetInfo2a
             Bouton_Modifier_CR.Visibility = Visibility.Hidden;
             Bouton_Enregistrer_CR.Visibility = Visibility.Visible;
             Texte_1000_caract.Visibility = Visibility.Visible;
-            Case_Texte_CR.Visibility = Visibility.Visible;
-            Case_Texte_CR_MAJ.Visibility = Visibility.Hidden;
+            Case_Texte_CR_Modif.Visibility = Visibility.Visible;
+            Case_Texte_CR.Visibility = Visibility.Hidden;
+
+            Case_Texte_CR.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
+            Titre_CR_Modif.SetBinding(TextBox.TextProperty, new Binding("_titre"));
         }
 
         private void Enregistrer_CR(object sender, RoutedEventArgs e)
         {
             Bouton_Enregistrer_CR.Visibility = Visibility.Hidden;
             Texte_1000_caract.Visibility = Visibility.Hidden;
-            Case_Texte_CR.Visibility = Visibility.Hidden;
+            Case_Texte_CR_Modif.Visibility = Visibility.Hidden;
             Bouton_Modifier_CR.Visibility = Visibility.Visible;
-            Case_Texte_CR_MAJ.Visibility = Visibility.Visible;
+            Case_Texte_CR.Visibility = Visibility.Visible;
 
-            Case_Texte_CR_MAJ.SetBinding(TextBox.TextProperty, new Binding("_contenu"));
+            Case_Texte_CR.SetBinding(TextBlock.TextProperty, new Binding("_contenu"));
+            Titre_CR.SetBinding(TextBlock.TextProperty, new Binding("_titre"));
 
-            //sérialiser dans le planning.xml
+            //sérialise les modification du CR dans planning.xml
+            saveCR();
         }
 
         // Afiche le titre du CR
@@ -69,5 +75,49 @@ namespace ProjetInfo2a
             tbk.SetBinding(TextBlock.TextProperty, new Binding("_contenu"));
 
         }
+
+        //sérialise les modification du CR dans planning.xml
+        private void saveCR()
+        {
+            XmlDocument xmlDocOut = new XmlDocument();
+            string path = "../../Data/planning.xml";
+            try
+            {
+                xmlDocOut.Load(path);
+            }
+            catch
+            {
+                string message = "Le fichier XML de sauvegarde n'a pas été trouvé dans le répertoire.";
+                MessageBox.Show(message);
+                return;
+            }
+            
+            //recupère le jour concerné
+            XmlNode jourJ = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _cr._date + "']");
+
+            //récupère le CR s'il existe dans le planning.xml
+            XmlNode exCR = xmlDocOut.SelectSingleNode("/Planning/Jour[@numero='" + _cr._date + "']/CompteRendu");
+            if (exCR != null)
+            {
+                //modif de l'existant
+
+                //MàJ contenu modifié
+                jourJ.AppendChild(exCR);
+            }
+            else
+            {
+                //crée un CR
+                XmlElement cr = xmlDocOut.CreateElement("CompteRendu");
+                cr.SetAttribute("titre", Titre_CR_Modif.Text);
+                cr.InnerText = Case_Texte_CR_Modif.Text;
+
+                //insère la balise CompteRendu remplie dans planning.xml
+                jourJ.AppendChild(cr);
+            }
+            
+            xmlDocOut.Save(path);
+        }
+
+        
     }
 }

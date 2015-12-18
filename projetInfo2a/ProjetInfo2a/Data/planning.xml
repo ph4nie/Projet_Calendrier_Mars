@@ -8,6 +8,9 @@
     <Activite hDebut="19" hFin="21" categorie="Living / Eating" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="21" hFin="23" categorie="Living / Private" astronautes="" lieu="" descriptif="" sortieExt="" />
     <Activite hDebut="23" hFin="24,4" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
+    <CompteRendu titre="Arrivée sur Mars">
+      Le jour 1, on a installé nos affaires et on a dormi jusqu'au jour 2.
+    </CompteRendu>
   </Jour>
   <Jour numero="2">
     <Activite hDebut="0" hFin="7" categorie="Living / Sleeping" astronautes="" lieu="" descriptif="" sortieExt="" />
